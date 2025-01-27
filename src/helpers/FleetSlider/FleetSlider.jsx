@@ -2,7 +2,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import CarData from '../../assets/CarData/CarData';
-import "./FleetSlider.css";
+import "./fleetSlider.css";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 
