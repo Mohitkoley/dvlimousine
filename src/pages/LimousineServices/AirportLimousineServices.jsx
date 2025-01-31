@@ -57,13 +57,8 @@ const AirportLimousineServices = () => {
                 <div>
                     <Navbar />
                 </div>
-                <div
-                    className="relative bg-cover bg-center bg-no-repeat"
-                    style={{
-                        backgroundImage:
-                            'url(/src/assets/images/airport-limousine.jpg)',
-                    }}
-                >
+                <div className="relative bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage:'url(../../../src/assets/images/airport-limousine.jpg)',}}>
                     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 bg-cover bg-center bg-no-repeat">
                         <div className="max-w-3xl">
                             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
