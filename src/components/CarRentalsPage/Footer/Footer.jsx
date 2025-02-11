@@ -74,6 +74,10 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef, contac
           </span>
         </div>
       </div>
+      {/* Copyright Text */}
+      <div className="copyright text-center text-gray-400 text-lg mt-4">
+        Copyright &copy; {new Date().getFullYear()} Dynamic Vibes - Limousine Services. All Rights Reserved
+      </div>
     </section>
   );
 };
