@@ -115,13 +115,12 @@ const ContactUs = () => {
     try {
       const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe6vhJPck06vY_89qvlDWixQqAt7OvLsgNqzlAxazz-olOZJQ/formResponse";
       
-      // Updated entry IDs for the specific Google Form
       const formBody = new URLSearchParams({
-        "entry.1234567890": formData.name,     // Replace with actual entry ID for name
-        "entry.1234567891": formData.email,    // Replace with actual entry ID for email
-        "entry.1234567892": formData.phone,    // Replace with actual entry ID for phone
-        "entry.1234567893": formData.package,  // Replace with actual entry ID for package
-        "entry.1234567894": formData.message,  // Replace with actual entry ID for message
+        "entry.2005620554": formData.name,
+        "entry.1045781291": formData.email,
+        "entry.1166974658": formData.phone,
+        "entry.1065046570": formData.package,
+        "entry.839337160": formData.message,
       });
 
       await fetch(formUrl, {
