@@ -3,39 +3,33 @@ import { useNavigate } from 'react-router-dom';
 import logo from "../../assets/images/logo.png"
 
 const Navbar = () => {
-    const [isFixed, setIsFixed] = useState(false);
-    const logoRef = useRef(null); // Refs for sections
-    // const reviewsRef = useRef(null);
-    const navigate = useNavigate();
+  const [isFixed, setIsFixed] = useState(false);
+  const logoRef = useRef(null); // Refs for sections
+  // const reviewsRef = useRef(null);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            setIsFixed(!entry.isIntersecting);
-          },
-          {
-            root: null,
-            threshold: 0,
-          }
-        );
-    
-        if (logoRef.current) {
-          observer.observe(logoRef.current);
-        }
-    
-        return () => {
-          if (logoRef.current) {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            observer.unobserve(logoRef.current);
-          }
-        };
-      }, []);
-    
-      // const scrollToSection = (ref) => {
-      //   if (ref.current) {
-      //     ref.current.scrollIntoView({ behavior: 'smooth' });
-      //   }
-      // };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFixed(!entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0,
+      }
+    );
+
+    if (logoRef.current) {
+      observer.observe(logoRef.current);
+    }
+
+    return () => {
+      if (logoRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(logoRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -45,7 +39,7 @@ const Navbar = () => {
           ref={logoRef}
           className="w-full h-1/5 text-white flex flex-col justify-center items-center gap-2 mb-16 mt-10"
         >
-          <img src={logo} alt="Logo" className="logo w-40 h-32" />
+          <img src={logo} alt="Logo" className="logo w-64 h-48" />
           {/* <div className="tagline text-lg font-light">Space for tagline</div> */}
         </div>
 
@@ -71,13 +65,13 @@ const Navbar = () => {
           <div className='dropdown'>
             <span>About Us</span>
             <div className='dropdown-content'>
-              <a onClick={()=>navigate('/faq')}>FAQ</a>
+              <a onClick={() => navigate('/faq')}>FAQ</a>
             </div>
           </div>
           <div className='dropdown'>
             <span>Contact Us</span>
             <div className='dropdown-content'>
-            <a onClick={()=>navigate('/contact')}>Request a Call back</a>
+              <a onClick={() => navigate('/contact')}>Request a Call back</a>
             </div>
           </div>
         </div>

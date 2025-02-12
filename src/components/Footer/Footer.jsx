@@ -4,6 +4,10 @@ import logo from "../../assets/images/logo.png"
 
 const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef }) => {
   const navigate = useNavigate();
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("contactUs");
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section className="FooterContainer flex flex-col text-white py-6">
@@ -25,7 +29,7 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef }) => {
           </span>
           <span
             className="cursor-pointer hover:underline"
-            onClick={() => navigate('#')}
+            onClick={handleScrollToContact}
           >
             Contact Us
           </span>
@@ -36,7 +40,7 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef }) => {
           className="FooterLogo font-lobster text-gradient text-4xl md:mr-6 cursor-pointer"
           onClick={() => scrollToSection(homeIntroRef)}
         >
-          <img src={logo} alt="Logo" className="logo w-20 h-12" />
+          <img src={logo} alt="Logo" className="logo w-40 h-32" />
         </span>
       </div>
 
