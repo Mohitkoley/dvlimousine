@@ -32,7 +32,7 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef, contac
           className="FooterLogo font-lobster text-gradient text-4xl md:mr-6 cursor-pointer"
           onClick={() => scrollToSection(homeIntroRef)}
         >
-          <img src={logo} alt="Logo" className="logo w-40 h-32" />
+          <img src={logo} alt="Logo" className="logo w-[100px] h-[100px]" />
         </span>
       </div>
 
@@ -43,7 +43,7 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef, contac
       <div className="belowline w-full flex md:justify-between justify-center flex-wrap items-center mt-4 px-6">
         {/* Left Section */}
         <div className="left-section flex gap-6 flex-wrap md:mb-0 mb-4">
-          <span className="cursor-pointer hover:underline">Email</span>
+          {/* <span className="cursor-pointer hover:underline">Email</span>
           <span
             className="cursor-pointer hover:underline"
             onClick={() => navigate('#')}
@@ -55,12 +55,12 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef, contac
             onClick={() => navigate('#')}
           >
             Terms of Service
-          </span>
+          </span> */}
         </div>
 
         {/* Right Section */}
         <div className="right-section flex gap-4 flex-wrap md:mr-6">
-          <span
+          {/* <span
             className="cursor-pointer hover:underline"
             onClick={() => navigate('#')}
           >
@@ -71,7 +71,7 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef, contac
             onClick={() => navigate('#')}
           >
             <Facebook fontSize='large' className='hover:text-sky-500'/>
-          </span>
+          </span> */}
         </div>
       </div>
       {/* Copyright Text */}

@@ -1,6 +1,6 @@
 import './contactUs.css';
 import { Mail, Phone, Package } from 'lucide-react';
-import {  useCallback } from 'react';
+import { useCallback } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Button, Form, Input, Radio, Space, notification } from "antd";
 
@@ -8,28 +8,40 @@ const ContactUs = () => {
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
 
+
+  // https://docs.google.com/forms/d/e/1FAIpQLSe6vhJPck06vY_89qvlDWixQqAt7OvLsgNqzlAxazz-olOZJQ/viewform?usp=pp_url&entry.2005620554=Sayak&entry.1045781291=sayakmallickkv@gmail.com&entry.1166974658=8723200225&entry.1065046570=Winery+Tours&entry.839337160=thi+si+snihadoufhsd
+
   const onFinish = useCallback(
     async ({ name, email, phone, packages, message }) => {
       try {
-        await fetch(
-          "https://docs.google.com/forms/d/e/1FAIpQLSe_aMtgvN4VwLuRAP_k-JhdG2TwfN_Zq4ZsKf59GhmjcbygRg/formResponse?" +
-          new URLSearchParams({
-            "entry.1440729417": name,
-            "entry.2077556100": email,
-            "entry.2131512092": phone,
-            "entry.87022953": packages ?? "",
-            "entry.567390936": message ?? "",
-          }),
-          {
-            mode: "no-cors",
-          }
-        );
-        
-        // Show success notification
-        api.success({
-          message: "Your Request has been submitted successfully",
+        const formUrl =
+          "https://docs.google.com/forms/d/e/1FAIpQLSe6vhJPck06vY_89qvlDWixQqAt7OvLsgNqzlAxazz-olOZJQ/formResponse";
+
+        const formData = new URLSearchParams({
+          "entry.2005620554": name,
+          "entry.1045781291": email,
+          "entry.1166974658": phone,
+          "entry.1065046570": packages ?? "",
+          "entry.839337160": message ?? "",
         });
-        form.resetFields();
+
+        fetch(formUrl, {
+          method: "POST",
+          mode: "no-cors", // Needed to bypass CORS issues
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: formData,
+        })
+          .then(() =>
+            api.success({
+              message: "Your Request has been submitted successfully",
+            }),
+            form.resetFields()
+          )
+          .catch((error) => api.error({
+            message: e.message,
+          }));
       } catch (e) {
         api.error({
           message: e.message,
@@ -58,7 +70,7 @@ const ContactUs = () => {
               {/* Name Field */}
               <div className="relative">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <Form.Item name="name"  rules={[{ required: true }]}>
+                <Form.Item name="name" rules={[{ required: true }]}>
                   <Input className={`block w-full px-4 py-3 rounded-lg border ${'border-gray-300'
                     } shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all`} />
                 </Form.Item>
@@ -72,7 +84,7 @@ const ContactUs = () => {
                       <Mail className="w-4 h-4" /> Email
                     </span>
                   </label>
-                  <Form.Item name="email"  rules={[{ required: true }]}>
+                  <Form.Item name="email" rules={[{ required: true }]}>
                     <Input className={`block w-full px-4 py-3 rounded-lg border ${'border-gray-300'
                       } shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all`} />
                   </Form.Item>
@@ -83,7 +95,7 @@ const ContactUs = () => {
                       <Phone className="w-4 h-4" /> Phone Number
                     </span>
                   </label>
-                  <Form.Item name="phone"  rules={[{ required: true }]}>
+                  <Form.Item name="phone" rules={[{ required: true }]}>
                     <Input className={`block w-full px-4 py-3 rounded-lg border ${'border-gray-300'
                       } shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all`} />
                   </Form.Item>
@@ -101,9 +113,9 @@ const ContactUs = () => {
                   <Radio.Group className={`block w-full px-4 py-3 rounded-lg border ${'border-gray-300'
                     } shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all appearance-none bg-white`}>
                     <Space direction="vertical">
-                      <Radio value="Airport Limosine Service">Airport Limosine Service</Radio>
-                      <Radio value="Wedding Limosine Service">Wedding Limosine Service</Radio>
-                      <Radio value="Prom Limosine Service">Prom Limosine Service</Radio>
+                      <Radio value="Airport Limousine Service">Airport Limousine Service</Radio>
+                      <Radio value="Wedding Limousine Service">Wedding Limousine Service</Radio>
+                      <Radio value="Prom Limousine Service">Prom Limousine Service</Radio>
                       <Radio value="Winery Tours">Winery Tours</Radio>
                       <Radio value="Nights Out on the Town">Nights Out on the Town</Radio>
                       <Radio value="Bachelor and Bachelorette Parties">Bachelor and Bachelorette Parties</Radio>
