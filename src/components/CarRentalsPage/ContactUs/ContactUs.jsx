@@ -263,13 +263,13 @@ const ContactUs = () => {
                   } shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all appearance-none bg-white`}
                 >
                   <option value="">Select a service</option>
-                  <option value="airport">Airport Limousine Service</option>
-                  <option value="wedding">Wedding Limousine Service</option>
-                  <option value="prom">Prom Limousine Service</option>
+                  <option value="Airport Limousine Service">Airport Limousine Service</option>
+                  <option value="Wedding Limousine Service">Wedding Limousine Service</option>
+                  <option value="Prom Limousine Service">Prom Limousine Service</option>
                   <option value="winery">Winery Tours</option>
-                  <option value="nightsOut">Nights Out on the Town</option>
-                  <option value="bachelor">Bachelor and Bachelorette Parties</option>
-                  <option value="corporate">Corporate</option>
+                  <option value="Winery Tours">Nights Out on the Town</option>
+                  <option value="Bachelor and Bachelorette Parties">Bachelor and Bachelorette Parties</option>
+                  <option value="Corporate">Corporate</option>
                 </select>
                 {errors.package && (
                   <p className="mt-1 text-sm text-red-600">{errors.package}</p>
