@@ -8,9 +8,6 @@ const ContactUs = () => {
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
 
-
-  // https://docs.google.com/forms/d/e/1FAIpQLSe6vhJPck06vY_89qvlDWixQqAt7OvLsgNqzlAxazz-olOZJQ/viewform?usp=pp_url&entry.2005620554=Sayak&entry.1045781291=sayakmallickkv@gmail.com&entry.1166974658=8723200225&entry.1065046570=Winery+Tours&entry.839337160=thi+si+snihadoufhsd
-
   const onFinish = useCallback(
     async ({ name, email, phone, packages, message }) => {
       try {

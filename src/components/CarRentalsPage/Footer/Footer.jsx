@@ -1,10 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Instagram, Facebook } from '@mui/icons-material';
 import logo from "../../../assets/images/logo.png";
 
-const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef, contactUsRef,quoteRequestRef }) => {
-  const navigate = useNavigate();
+const Footer = ({ contactUsRef, servicesRef, aboutUsRef }) => {
+
+  const scrollToSection = (ref) => {
+    ref?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section className="FooterContainer flex flex-col text-white py-6">
@@ -24,7 +25,12 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef, contac
           >
             Services
           </span>
-          <span className="cursor-pointer hover:underline" onClick={() => scrollToSection(quoteRequestRef)}>Contact Us</span>
+          <span 
+            className="cursor-pointer hover:underline"
+            onClick={() => scrollToSection(contactUsRef)}
+          >
+            Contact Us
+          </span>
         </div>
 
         {/* Footer Logo */}
