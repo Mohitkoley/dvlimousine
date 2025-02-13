@@ -1,6 +1,6 @@
 import './contactUs.css';
 import { Mail, Phone, Package } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
 const ContactUs = () => {
@@ -103,7 +103,7 @@ const ContactUs = () => {
     return isValid;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -123,16 +123,11 @@ const ContactUs = () => {
         "entry.839337160": formData.message,
       });
 
-      await fetch(formUrl, {
-        method: "POST",
+      await fetch(`${formUrl}?${formBody.toString()}`, {
+        method: "GET",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formBody,
       });
       
-      // Dismiss loading toast and show success toast
       toast.dismiss(loadingToast);
       toast.success('Thank you! Your message has been sent successfully.', {
         duration: 5000,
@@ -143,7 +138,6 @@ const ContactUs = () => {
         },
       });
 
-      // Reset form and errors
       setFormData({
         name: "",
         email: "",
@@ -160,14 +154,13 @@ const ContactUs = () => {
       });
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Dismiss loading toast and show error toast
       toast.dismiss(loadingToast);
       toast.error('There was an error sending your message. Please try again.', {
         duration: 5000,
         position: 'top-center',
       });
     }
-  };
+  }, [formData, validateForm]);
 
   return (
     <>
