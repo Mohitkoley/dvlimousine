@@ -37,11 +37,11 @@ const ContactUs = () => {
             form.resetFields()
           )
           .catch((error) => api.error({
-            message: e.message,
+            message: error.message,
           }));
-      } catch (e) {
+      } catch (error) {
         api.error({
-          message: e.message,
+          message: error.message,
         });
       }
     },
