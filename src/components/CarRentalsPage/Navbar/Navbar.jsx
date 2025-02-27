@@ -28,7 +28,7 @@ const Navbar = () => {
       <section className=" flex flex-col items-center">
         {/* Logo Section */}
         <div className="w-full h-1/5 text-white flex flex-col justify-center items-center gap-2 mb-16 mt-10">
-          <img src={logo} alt="Logo" className="logo w-64 h-64" />
+          <img src={logo} alt="Logo" className="logo w-80 h-64" />
           {/* <div className="tagline text-lg font-light">Space for tagline</div> */}
         </div>
 

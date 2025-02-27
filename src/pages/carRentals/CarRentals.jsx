@@ -7,7 +7,7 @@ import Footer from '../../components/CarRentalsPage/Footer/Footer';
 import ContactUs from '../../components/CarRentalsPage/ContactUs/ContactUs';
 import TestimonialSwiper from '../../components/HomePage/Reviews/TestimonialSwiper';
 import FAQSection from '../FAQ/FAQSection';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 const CarRentals = () => {
   const contactUsRef = useRef(null);

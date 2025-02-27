@@ -40,7 +40,7 @@ const Footer = ({ scrollToSection, aboutUsRef, servicesRef, homeIntroRef }) => {
           className="FooterLogo font-lobster text-gradient text-4xl md:mr-6 cursor-pointer"
           onClick={() => scrollToSection(homeIntroRef)}
         >
-          <img src={logo} alt="Logo" className="logo w-40 h-32" />
+          <img src={logo} alt="Logo" className="logo w-52 h-32" />
         </span>
       </div>
 
